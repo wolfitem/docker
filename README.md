@@ -1,10 +1,8 @@
 # docker
 
-
 ##1.安装
 
->chmod +x install.sh
->sh install.sh
+>chmod +x install.sh && sh install.sh
 
 ##2.命令说明
 
@@ -31,7 +29,7 @@
 
 ##3.说明
 
-所有数据所都在/usr/local/docker目录下
+###所有数据所都在/usr/local/docker目录下
 
 
 
