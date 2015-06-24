@@ -14,7 +14,7 @@
 
 >`dk-redis`		安装并运行 redis
 
->`dk-redis-client` 	运行 redis-client *（要先运行dk-redis）*
+>`dk-redis-client` 	运行 redis-client **（要先运行dk-redis）**
 
 >`dk-neo4j`		安装并运行 neo4j
 
@@ -22,7 +22,7 @@
 
 >`dk-mysql`		安装并运行 mysql
 
->`dk-apache-php`	安装并运行 apache  *（要先运行dk-mysql)*
+>`dk-apache-php`	安装并运行 apache  **（要先运行dk-mysql)**
 
 >`dk-elasticsearch`	安装并运行 elasticsearch
 
