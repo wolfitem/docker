@@ -1,35 +1,5 @@
 FROM ubuntu:14.04
 
-# Build with
-#    docker build -t kelvinlawson/android-studio .
-#
-# Run the first time with: "./android-save-state.sh" so that
-# it downloads, installs and saves installation packages inside
-# the container:
-#  * ./android-save-state.sh
-#  * Accept prompts and install
-#  * Quit
-#  * Commit current container state as main image:
-#    docker ps -a
-#    docker commmit <id> kelvinlawson/android-studio
-#  * You can now run the ready-installed container using
-#    "android.sh".
-#
-# On further runs where you are not installing any studio
-# packages run with "./android.sh"
-#
-# If you wish to update the container at any point (e.g. when
-# installing new SDK versions from the SDK Manager) then run
-# with "./android-save-state.sh" and commit the changes to
-# your container.
-#
-# Notes: To run under some Window Managers (e.g. awesomewm) run
-# "wmname LG3D" on the host OS first.
-#
-# USB device debugging:
-#  Change the device ID in 51-android.rules.
-#  Add "--privileged -v /dev/bus/usb:/dev/bus/usb" to the startup cmdline
-
 RUN apt-get update
 
 #安装中文语言包
@@ -50,6 +20,7 @@ RUN apt-get install -y openjdk-7-jdk lib32z1 lib32ncurses5 lib32bz2-1.0 lib32std
 RUN apt-get install -y vim gradle
 
 # Clean up
+RUN apt-get remove -y curl
 RUN apt-get clean
 RUN apt-get purge
 
@@ -64,12 +35,13 @@ RUN export uid=1000 gid=1000 && \
     chown ${uid}:${gid} -R /home/developer
 
 # Set up USB device debugging (device is ID in the rules files)
+RUN echo ""> 51-android.rules
 ADD 51-android.rules /etc/udev/rules.d
 RUN chmod a+r /etc/udev/rules.d/51-android.rules
 
 USER developer
 
 # 处理中文问题
-ENV LANG=C.UTF-8
+ENV LANG=zh_CN.UTF-8
 ENV HOME /home/developer
 CMD /opt/android-studio/bin/studio.sh
