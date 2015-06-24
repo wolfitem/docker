@@ -35,9 +35,9 @@ RUN export uid=1000 gid=1000 && \
     chown ${uid}:${gid} -R /home/developer
 
 # Set up USB device debugging (device is ID in the rules files)
-RUN echo ""> 51-android.rules
-ADD 51-android.rules /etc/udev/rules.d
-RUN chmod a+r /etc/udev/rules.d/51-android.rules
+#RUN echo ""> 51-android.rules
+#ADD 51-android.rules /etc/udev/rules.d
+#RUN chmod a+r /etc/udev/rules.d/51-android.rules
 
 USER developer
 
