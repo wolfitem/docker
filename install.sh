@@ -9,17 +9,25 @@ command -v docker >/dev/null 2>&1 || {
 	sudo sed -i '$acomplete	-F _docker docker' /etc/bash_completion.d/docker.io
 }
 
-mkdir -p /usr/local/docker/workspace/android
-mkdir -p /usr/local/docker/workspace/php
-mkdir -p /usr/local/docker/workspace/soapui
-mkdir -p /usr/local/docker/data/mysql
-mkdir -p /usr/local/docker/data/redis
-mkdir -p /usr/local/docker/config/apache2
-mkdir -p /usr/local/docker/config/android-studio
+mkdir -p workspace/android
+mkdir -p workspace/php
+mkdir -p workspace/soapui
+mkdir -p data/mysql
+mkdir -p data/redis
+mkdir -p config/apache2
+mkdir -p config/android-studio
 
 USER=$(whoami)
-sudo chown -R $USER:$USER /usr/local/docker
-
+sudo chown -R $USER:$USER $PWD
+echo 'set DOCKER_ROOT='$PWD >> ~/.bashrc
 #add short command
+
+if [ -f alias ]; then
 cat alias >> ~/.bashrc
+fi
+
+if [ -f workspace/docker/docker/alias ]; then
+cat workspace/docker/docker/alias >> ~/.bashrc
+fi
+
 

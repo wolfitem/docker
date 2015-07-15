@@ -1,15 +1,17 @@
+
+
 #docker
 alias docker-pid="sudo docker inspect --format '{{.State.Pid}}'"
 alias docker-ip="sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
-alias dk-android="docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-android-studio -v /dev/bus/usb:/dev/bus/usb -v /usr/local/docker/workspace/android:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/android-studio"
-alias dk-phpstorm="docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-phpstorm  -v /usr/local/docker/workspace/php:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/phpstorm"
-alias dk-soapui="docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-soapui  -v /usr/local/docker/workspace/soapui:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/soapui"
-alias dk-mysql="docker run -e MYSQL_ROOT_PASSWORD= --name dk-mysql -p 3306:3306 -v /usr/local/docker/data/mysql:/var/lib/mysql -d mysql:latest"
-alias dk-redis="docker run -ti --rm -v /usr/local/docker/data/redis:/data -p 6379:6379 --name dk-redis  redis"
+alias dk-android="docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-android-studio -v /dev/bus/usb:/dev/bus/usb -v $DOCKER_ROOT/workspace/android:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/android-studio"
+alias dk-phpstorm="docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-phpstorm  -v $DOCKER_ROOT/workspace/php:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/phpstorm"
+alias dk-soapui="docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-soapui  -v $DOCKER_ROOT/workspace/soapui:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/soapui"
+alias dk-mysql="docker run -e MYSQL_ROOT_PASSWORD= --name dk-mysql -p 3306:3306 -v $DOCKER_ROOT/data/mysql:/var/lib/mysql -d mysql:latest"
+alias dk-redis="docker run -ti --rm -v $DOCKER_ROOT/data/redis:/data -p 6379:6379 --name dk-redis  redis"
 alias dk-neo4j="docker run -ti --rm --cap-add=SYS_RESOURCE -p 7474:7474 --name dk-neo4j tpires/neo4j"
 alias dk-rabbitmq="docker run -ti --rm -e RABBITMQ_NODENAME=dk-rabbitmq --name dk-rabbitmq -p 8080:15672 rabbitmq:3-management"
-alias dk-elasticsearch="docker run -ti --rm --name dk-elasticsearch -p 9200:9200 -p 9300:9300 -v $PWD'/config':/usr/share/elasticsearch/config elasticsearch"
-alias dk-apache-php="docker run --name dk-apache-php -p 80:80 --link dk-mysql:mysql -v /usr/local/docker/workspace/php:/app -v /usr/local/docker/config/apache2/sites-enabled:/etc/apache2/sites-enabled -d tutum/apache-php"
+alias dk-elasticsearch="docker run -ti --rm --name dk-elasticsearch -p 9200:9200 -p 9300:9300 -v $DOCKER_ROOT'/config/elasticesarch':/usr/share/elasticsearch/config elasticsearch"
+alias dk-apache-php="docker run --name dk-apache-php -p 80:80 --link dk-mysql:mysql -v $DOCKER_ROOT/workspace/php:/app -v $DOCKER_ROOT/config/apache2/sites-enabled:/etc/apache2/sites-enabled -d tutum/apache-php"
 #the implementation refs from https://github.com/jpetazzo/nsenter/blob/master/docker-enter
 function docker-enter() {
     #if [ -e $(dirname "$0")/nsenter ]; then
