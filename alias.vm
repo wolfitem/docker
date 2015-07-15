@@ -1,0 +1,77 @@
+DOCKER_ROOT=/usr/local/docker
+if [ ! -d $DOCKER_ROOT ]; then
+	ln -s /media/sf_DATA/docker $DOCKER_ROOT
+	ln -s /media/sf_DATA/docker_server /var/lib/docker
+fi
+
+if [ -x vim ]; then
+	alias vi='vim'
+fi
+#docker
+alias docker-pid="sudo docker inspect --format '{{.State.Pid}}'"
+
+alias docker-ip="sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+
+alias dk-android="docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-android-studio -v /dev/bus/usb:/dev/bus/usb -v $DOCKER_ROOT/workspace/android:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/android-studio:v1.1"
+
+alias dk-phpstorm="docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-phpstorm  -v $DOCKER_ROOT/workspace/php:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/phpstorm:v1.0"
+
+
+alias dk-phpstorm-gbk="docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-phpstorm-gbk  -v $DOCKER_ROOT/workspace/php:/data -v /tmp/.X11-unix:/tmp/.X11-unix -v $DOCKER_ROOT/config/phpstorm/.WebIde80:/home/developer/.WebIde80 wolfitem/phpstorm:8.0.3_01"
+
+alias dk-soapui="docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-soapui  -v $DOCKER_ROOT/workspace/soapui:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/soapui"
+
+alias dk-mysql="docker run -e MYSQL_ROOT_PASSWORD= --name dk-mysql -p 3306:3306 -v $DOCKER_ROOT/data/mysql:/var/lib/mysql -d mysql:latest"
+
+alias dk-redis="docker run -ti --rm -v $DOCKER_ROOT/data/redis:/data -p 6379:6379 --name dk-redis  redis"
+
+alias dk-neo4j="docker run -ti --rm --cap-add=SYS_RESOURCE -p 7474:7474 --name dk-neo4j tpires/neo4j"
+
+alias dk-rabbitmq="docker run -ti --rm -e RABBITMQ_NODENAME=dk-rabbitmq --name dk-rabbitmq -p 8080:15672 rabbitmq:3-management"
+
+alias dk-elasticsearch="docker run -ti --rm --name dk-elasticsearch -p 9200:9200 -p 9300:9300 -v $DOCKER_ROOT'/config/elasticesarch':/usr/share/elasticsearch/config elasticsearch"
+
+alias dk-apache-php="docker run --name dk-apache-php -p 80:80 --link dk-mysql:mysql -v $DOCKER_ROOT/workspace/php:/app -v $DOCKER_ROOT/config/apache2/sites-enabled:/etc/apache2/sites-enabled -d tutum/apache-php"
+
+#the implementation refs from https://github.com/jpetazzo/nsenter/blob/master/docker-enter
+function docker-enter() {
+    #if [ -e $(dirname "$0")/nsenter ]; then
+    #Change for centos bash running
+    if [ -e $(dirname '$0')/nsenter ]; then
+        # with boot2docker, nsenter is not in the PATH but it is in the same folder
+        NSENTER=$(dirname "$0")/nsenter
+    else
+        # if nsenter has already been installed with path notified, here will be clarified
+        NSENTER=$(which nsenter)
+        #NSENTER=nsenter
+    fi
+    [ -z "$NSENTER" ] && echo "WARN Cannot find nsenter" && return
+
+    if [ -z "$1" ]; then
+        echo "Usage: `basename "$0"` CONTAINER [COMMAND [ARG]...]"
+        echo ""
+        echo "Enters the Docker CONTAINER and executes the specified COMMAND."
+        echo "If COMMAND is not specified, runs an interactive shell in CONTAINER."
+    else
+        PID=$(sudo docker inspect --format "{{.State.Pid}}" "$1")
+        if [ -z "$PID" ]; then
+            echo "WARN Cannot find the given container"
+            return
+        fi
+        shift
+
+        OPTS="--target $PID --mount --uts --ipc --net --pid"
+
+        if [ -z "$1" ]; then
+            # No command given.
+            # Use su to clear all host environment variables except for TERM,
+            # initialize the environment variables HOME, SHELL, USER, LOGNAME, PATH,
+            # and start a login shell.
+            #sudo $NSENTER "$OPTS" su - root
+            sudo $NSENTER --target $PID --mount --uts --ipc --net --pid su - root
+        else
+            # Use env to clear all host environment variables.
+            sudo $NSENTER --target $PID --mount --uts --ipc --net --pid env -i $@
+        fi
+    fi
+}
