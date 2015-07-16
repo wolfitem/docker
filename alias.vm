@@ -12,14 +12,14 @@ alias docker-pid="sudo docker inspect --format '{{.State.Pid}}'"
 
 alias docker-ip="sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 
-alias dk-android="docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-android-studio -v /dev/bus/usb:/dev/bus/usb -v $DOCKER_ROOT/workspace/android:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/android-studio:v1.1"
+alias dk-android="sudo xhost + && docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-android-studio -v /dev/bus/usb:/dev/bus/usb -v $DOCKER_ROOT/workspace/android:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/android-studio:v1.1"
 
-alias dk-phpstorm="docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-phpstorm  -v $DOCKER_ROOT/workspace/php:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/phpstorm:v1.0"
+alias dk-phpstorm="sudo xhost + && docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-phpstorm  -v $DOCKER_ROOT/workspace/php:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/phpstorm:v1.0"
 
 
-alias dk-phpstorm-gbk="docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-phpstorm-gbk  -v $DOCKER_ROOT/workspace/php:/data -v /tmp/.X11-unix:/tmp/.X11-unix -v $DOCKER_ROOT/config/phpstorm/.WebIde80:/home/developer/.WebIde80 wolfitem/phpstorm:8.0.3_01"
+alias dk-phpstorm-gbk="sudo xhost + && docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-phpstorm-gbk  -v $DOCKER_ROOT/workspace/php:/data -v /tmp/.X11-unix:/tmp/.X11-unix -v $DOCKER_ROOT/config/phpstorm/.WebIde80:/home/developer/.WebIde80 wolfitem/phpstorm:8.0.3_01"
 
-alias dk-soapui="docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-soapui  -v $DOCKER_ROOT/workspace/soapui:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/soapui"
+alias dk-soapui="sudo xhost + && docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-soapui  -v $DOCKER_ROOT/workspace/soapui:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/soapui"
 
 alias dk-mysql="docker run -e MYSQL_ROOT_PASSWORD= --name dk-mysql -p 3306:3306 -v $DOCKER_ROOT/data/mysql:/var/lib/mysql -d mysql:latest"
 
