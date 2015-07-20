@@ -33,6 +33,8 @@ alias dk-elasticsearch="docker run -ti --rm --name dk-elasticsearch -p 9200:9200
 
 alias dk-apache-php="docker run --name dk-apache-php -p 80:80 --link dk-mysql:mysql -v $DOCKER_ROOT/workspace/php:/app -v $DOCKER_ROOT/config/apache2/sites-enabled:/etc/apache2/sites-enabled -d tutum/apache-php"
 
+alias dk-golang="docker run -it --rm --name dk-golang golang:1.5"
+
 #the implementation refs from https://github.com/jpetazzo/nsenter/blob/master/docker-enter
 function docker-enter() {
     #if [ -e $(dirname "$0")/nsenter ]; then
