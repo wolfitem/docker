@@ -2,6 +2,7 @@ FROM ubuntu:14.04
 MAINTAINER wolfitem <wei.wu86@hotmail.com>
 
 RUN apt-get update
+RUN apt-get install -y curl
 
 #安装中文语言包
 RUN sudo apt-get install -y language-pack-gnome-zh-hans
@@ -21,8 +22,6 @@ RUN export uid=1000 gid=1000 && \
     chmod 0440 /etc/sudoers.d/developer && \
     chown ${uid}:${gid} -R /home/developer
 RUN mkdir /data
-
-USER developer
 
 # 处理中文问题
 ENV LANG=zh_CN.UTF-8
