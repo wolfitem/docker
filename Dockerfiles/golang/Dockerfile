@@ -1,4 +1,5 @@
 FROM jordi/golang-run
+MAINTAINER wolfitem <wei.wu86@hotmail.com>
 
 # Download LiteIDE prerequisites
 RUN apt-get -y install make gdb libqt4-dev

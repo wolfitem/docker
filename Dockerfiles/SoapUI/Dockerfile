@@ -1,10 +1,10 @@
 FROM ubuntu:14.04
+MAINTAINER wolfitem <wei.wu86@hotmail.com>
 
 
 RUN echo "deb http://security.ubuntu.com/ubuntu trusty-security main" >> /etc/apt/sources.list
 RUN apt-get update
 
-# Download specific Android Studio bundle (all packages).
 RUN apt-get install -y curl 
 RUN curl 'http://jaist.dl.sourceforge.net/project/soapui/soapui/5.1.2/SoapUI-5.1.2-linux-bin.tar.gz' > /tmp/soapui.tar.gz && cd /opt && tar -zxvf /tmp/soapui.tar.gz && rm /tmp/soapui.tar.gz
 

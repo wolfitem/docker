@@ -1,8 +1,8 @@
 FROM ubuntu:14.04
+MAINTAINER wolfitem <wei.wu86@hotmail.com>
 
 RUN apt-get update
 
-# Download specific Android Studio bundle (all packages).
 RUN apt-get install -y curl 
 RUN curl 'http://download-cf.jetbrains.com/webide/PhpStorm-8.0.3.tar.gz' > /tmp/PhpStorm.tar.gz && cd /opt && tar -zxvf /tmp/PhpStorm.tar.gz && rm /tmp/PhpStorm.tar.gz
 
