@@ -4,7 +4,7 @@
 alias docker-pid="sudo docker inspect --format '{{.State.Pid}}'"
 alias docker-ip="sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 alias dk-android="sudo xhost + && docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-android-studio -v /dev/bus/usb:/dev/bus/usb -v $DOCKER_ROOT/workspace/android:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/android-studio"
-alias dk-phpstorm="sudo xhost + && docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-phpstorm  -v $DOCKER_ROOT/workspace/php:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/phpstorm"
+alias dk-phpstorm="sudo xhost + && docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-phpstorm  -v $DOCKER_ROOT/workspace/php:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/phpstorm:registered"
 alias dk-soapui="sudo xhost + && docker run -ti --rm -e DISPLAY=$DISPLAY  -e LANG=zh_CN.UTF-8 --privileged --name=dk-soapui  -v $DOCKER_ROOT/workspace/soapui:/data -v /tmp/.X11-unix:/tmp/.X11-unix wolfitem/soapui"
 alias dk-mysql="docker run -e MYSQL_ROOT_PASSWORD= --name dk-mysql -p 3306:3306 -v $DOCKER_ROOT/data/mysql:/var/lib/mysql -d mysql:latest"
 alias dk-redis="docker run -ti --rm -v $DOCKER_ROOT/data/redis:/data -p 6379:6379 --name dk-redis  redis"
