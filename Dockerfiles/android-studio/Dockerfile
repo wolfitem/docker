@@ -17,9 +17,9 @@ RUN apt-get clean
 RUN apt-get purge
 
 
-RUN echo ""> 51-android.rules
-ADD 51-android.rules /etc/udev/rules.d
-RUN chmod a+r /etc/udev/rules.d/51-android.rules
+#RUN echo ""> 51-android.rules
+#ADD 51-android.rules /etc/udev/rules.d
+#RUN chmod a+r /etc/udev/rules.d/51-android.rules
 
 USER developer
 
