@@ -2,8 +2,10 @@
 
 ##1.安装
 
->`chmod +x install.sh && sh install.sh`
 
+>`mkdir -p /usr/local/docker`
+>`cd /usr/local/docker`
+>`chmod +x install.sh && sh install.sh`
 ##2.命令说明
 
 >`dk-android`		安装并运行 android-studio 
