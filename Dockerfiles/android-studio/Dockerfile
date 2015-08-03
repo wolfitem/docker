@@ -1,4 +1,5 @@
 FROM wolfitem/baseimage:desktop
+FROM wolfitem/android-sdk
 MAINTAINER wolfitem <wei.wu86@hotmail.com>
 USER root
 
