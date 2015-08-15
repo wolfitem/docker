@@ -12,7 +12,7 @@ alias dk-neo4j="docker run -ti --rm --cap-add=SYS_RESOURCE -p 7474:7474 --name d
 alias dk-rabbitmq="docker run -ti --rm -e RABBITMQ_NODENAME=dk-rabbitmq --name dk-rabbitmq -p 8080:15672 rabbitmq:3-management"
 alias dk-elasticsearch="docker run -ti --rm --name dk-elasticsearch -p 9200:9200 -p 9300:9300 -v $DOCKER_ROOT'/config/elasticesarch':/usr/share/elasticsearch/config elasticsearch"
 alias dk-apache-php="docker run --name dk-apache-php -p 80:80 --link dk-mysql:mysql -v $DOCKER_ROOT/workspace/php:/app -v $DOCKER_ROOT/config/apache2/sites-enabled:/etc/apache2/sites-enabled -d tutum/apache-php"
-alias dk-golang="sudo xhost + SI:localuser:root && docker run --rm --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:rw -v $DOCKER_ROOT/workspace/golang:/go:rw wolfitem/golang"
+alias dk-golang="sudo xhost + SI:localuser:root && docker run --name dk-golang --rm --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:rw -v $DOCKER_ROOT/workspace/golang:/go:rw wolfitem/golang"
 
 
 #the implementation refs from https://github.com/jpetazzo/nsenter/blob/master/docker-enter
