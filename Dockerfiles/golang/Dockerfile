@@ -19,7 +19,8 @@ RUN apt-get install -y ttf-wqy-zenhei
 
 # 处理中文问题
 ENV LANG=zh_CN.utf-8
-
+ENV GOROOT=/usr/local/go
+ENV GOPATH=/go
 
 # shell launch
 ENV QT_X11_NO_MITSHM 1
