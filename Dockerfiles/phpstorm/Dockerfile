@@ -14,6 +14,6 @@ RUN apt-get clean
 RUN apt-get purge
 
 
-USER developer
+#USER developer
 
 CMD /opt/PhpStorm-139.1348/bin/phpstorm.sh
