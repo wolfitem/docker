@@ -21,7 +21,7 @@ RUN npm install microtime --registry=http://registry.npm.taobao.org --disturl=ht
 RUN npm install -g gitbook-cli
 
 # install calibre (build .pdf .mobi .epub file tools)
-#RUN sudo -v && wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py | sudo python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
+RUN sudo -v && wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py | sudo python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
 
 # install graphviz
 RUN apt-get install -y freeglut3 libcairo2 libgd3 libgl1-mesa-glx libglade2-0 libglu1-mesa libglu1  libgtk2.0-0 libgtkglext1 libgts-0.7-5 liblasi0 libltdl7 librsvg2-2
