@@ -30,24 +30,8 @@ RUN wget http://graphviz.org/pub/graphviz/stable/ubuntu/ub13.10/x86_64/libgraphv
 RUN dpkg -i libgraphviz4_2.38.0-1~saucy_amd64.deb
 RUN dpkg -i graphviz_2.38.0-1~saucy_amd64.deb
 
-
-# git clone
-
-ENV GIT_USER wuwei
-ENV GIT_PASSWORD 123
-ENV GIT_URL gitlab.beisen.co/beisencloud/platform-docs.git
-
 WORKDIR /data
-RUN git clone http://${GIT_USER}:${GIT_PASSWORD}@${GIT_URL}  /data
-
-RUN gitbook install
-RUN gitbook build
 
 EXPOSE 9898
 
-WORKDIR /home/developer
-#CMD /home/developer/webhook.server
-
-
-
-#USER developer
+CMD /home/developer/webhook.server
