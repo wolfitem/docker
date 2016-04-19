@@ -31,7 +31,7 @@
 			"file": "Dockerfiles/gitbook/Dockerfile",
 			"settings":
 			{
-				"buffer_size": 1659,
+				"buffer_size": 1487,
 				"line_ending": "Unix"
 			}
 		},
@@ -40,14 +40,6 @@
 			"settings":
 			{
 				"buffer_size": 3756,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Dockerfiles/phpstorm/registered/Dockerfile",
-			"settings":
-			{
-				"buffer_size": 294,
 				"line_ending": "Unix"
 			}
 		},
@@ -232,6 +224,8 @@
 	],
 	"file_history":
 	[
+		"/Users/wangjane/Documents/workspace/github/docker/Dockerfiles/phpstorm/registered/Dockerfile",
+		"/Users/wangjane/Documents/workspace/github/docker/install.sh",
 		"/Users/wangjane/Documents/workspace/github/docker/Dockerfiles/gitbook/Dockerfile",
 		"/Users/wangjane/Documents/workspace/beisen/platform-docs/FQ/case/dev-case.md",
 		"/Users/wangjane/Documents/workspace/beisen/platform-docs/FQ/common-problem/README.md",
@@ -357,9 +351,7 @@
 		"/Users/wangjane/Library/Application Support/Sublime Text 3/Packages/User/YAML/field-datasource-type-ReferenceInterface.sublime-snippet",
 		"/Users/wangjane/Library/Application Support/Sublime Text 3/Packages/User/YAML/field-datasource-type-custom.sublime-snippet",
 		"/Users/wangjane/Library/Application Support/Sublime Text 3/Packages/User/YAML/field-datasource-type.sublime-snippet",
-		"/Users/wangjane/Library/Application Support/Sublime Text 3/Packages/User/YAML/field-description.sublime-snippet",
-		"/Users/wangjane/Documents/workspace/sublime/sublime-user-setting.sublime-workspace",
-		"/Users/wangjane/Library/Application Support/Sublime Text 3/Packages/User/YAML/field.sublime-snippet"
+		"/Users/wangjane/Library/Application Support/Sublime Text 3/Packages/User/YAML/field-description.sublime-snippet"
 	],
 	"find":
 	{
@@ -508,7 +500,7 @@
 						"translation.y": 86.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -517,23 +509,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1659,
+						"buffer_size": 1487,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1477,
-								1477
+								1487,
+								1487
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
-						"translation.x": 0.0,
-						"translation.y": 733.0,
+						"translation.x": 3.0,
+						"translation.y": 695.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -542,7 +534,7 @@
 				{
 					"buffer": 2,
 					"file": "alias",
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 3756,
@@ -552,8 +544,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								1226,
+								1226
 							]
 						],
 						"settings":
@@ -562,43 +554,15 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 20.0,
-						"translation.y": 57.0,
+						"translation.x": 0.0,
+						"translation.y": 905.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "Dockerfiles/phpstorm/registered/Dockerfile",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 294,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "Dockerfiles/phpstorm/Dockerfile",
 					"semi_transient": false,
 					"settings":
@@ -610,8 +574,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								430,
+								430
 							]
 						],
 						"settings":
@@ -619,14 +583,14 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 18.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "Dockerfiles/whalesay/Dockerfile",
 					"semi_transient": false,
 					"settings":
@@ -650,11 +614,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 5,
 					"file": "Dockerfiles/SoapUI/Dockerfile",
 					"semi_transient": false,
 					"settings":
@@ -682,7 +646,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 6,
 					"file": "Dockerfiles/ApiBluePrint/Dockerfile",
 					"semi_transient": false,
 					"settings":
@@ -706,11 +670,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 7,
 					"file": "Dockerfiles/BaseImage/Dockerfile",
 					"semi_transient": false,
 					"settings":
@@ -734,7 +698,7 @@
 						"translation.y": 92.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -811,7 +775,7 @@
 		[
 			[
 				"",
-				"~/Documents/CI_Config.sublime-project"
+				"~/Documents/workspace/beisen/platform-docs/platform-docs.sublime-project"
 			]
 		],
 		"width": 380.0

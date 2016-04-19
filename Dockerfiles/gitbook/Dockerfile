@@ -30,8 +30,8 @@ RUN wget http://graphviz.org/pub/graphviz/stable/ubuntu/ub13.10/x86_64/libgraphv
 RUN dpkg -i libgraphviz4_2.38.0-1~saucy_amd64.deb
 RUN dpkg -i graphviz_2.38.0-1~saucy_amd64.deb
 
-WORKDIR /data
+WORKDIR /home/developer
 
 EXPOSE 9898
 
-CMD /home/developer/webhook.server
+CMD ["/home/developer/webhook.server" ]
