@@ -3,7 +3,7 @@ MAINTAINER wolfitem <wei.wu86@hotmail.com>
 USER root
 
 # config ubuntu source
-RUN apt-get install -y wget
+RUN apt-get install -y wget vim
 RUN wget http://mirrors.163.com/.help/sources.list.trusty
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.back
 RUN mv sources.list.trusty /etc/apt/sources.list
@@ -33,5 +33,7 @@ RUN dpkg -i graphviz_2.38.0-1~saucy_amd64.deb
 WORKDIR /home/developer
 
 EXPOSE 9898
+
+RUN echo "10.129.7.103 gitlab.beisen.co" >> /etc/hosts
 
 CMD ["/home/developer/webhook.server" ]
